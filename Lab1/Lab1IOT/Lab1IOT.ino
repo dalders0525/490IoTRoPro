@@ -41,13 +41,11 @@ String msg = "GET /update?key=5W7VVTDRX2QRA5XC"; //change it with your api key l
 
 
 //********Interrupts
-#define sleepPin 4
-#define wakePin 2
+#define sleepPin 4 //when low, makes board sleep
+#define wakePin 2 //when low, wakes up board (must be on pin 2)
 
 
 //******Variables
-#define sleepPin 4 //when low, makes board sleep
-#define wakePin 2 //when low, wakes up board (must be on pin 2)
 float temp;
 int hum;
 String tempC;
@@ -105,8 +103,8 @@ void setup()
   pinMode(greenled, OUTPUT);      //pin for green LED
   pinMode(A0,INPUT);              //pin for Light sensor
   pinMode(8,INPUT);               //pin for Dust sensor
-  pinMode(sleepPin, INPUT_PULLUP);      //pin for the shut off ISR
-  pinMode(wakePin, INPUT_PULLUP);       //pin for the turn on ISR
+  pinMode(sleepPin, INPUT);      //pin for the shut off ISR
+  pinMode(wakePin, INPUT);       //pin for the turn on ISR
 
 }
 
@@ -133,7 +131,6 @@ void loop(){
       attachInterrupt(digitalPinToInterrupt(wakePin), sleepISR, LOW);
       interrupts();                                               //re-allow interrupts since we now want them to run to wake up
       sleep_cpu();
-      
     }
      
 //**********Temperature Sensor
@@ -143,7 +140,19 @@ void loop(){
     unit="*C";
     temperaturedata= dht.readTemperature();                          //read sensor and get data
     //updatesite("2",sensordata);                             //update ThingSpeak site with data ("field",sensordata)
-    testdata(temperaturedata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message    
+    testdata(temperaturedata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message  
+    if (digitalRead(sleepPin) == LOW){
+      static byte prevADCSRA = ADCSRA;                            //STORES CURRENT ADDRESS IN A VARIABLE
+      ADCSRA = 0;                                                  //RESEETS THE ADC TO ALLOW SHUT DOWN
+      set_sleep_mode (SLEEP_MODE_PWR_DOWN);                       //DEEP SLEEP, MINIMAL POWER USAGE
+      sleep_enable();                                             //ALLOWS THE ARDUINO TO SLEEP 
+      MCUCR = bit (BODS) | bit (BODSE);                           //BODS MUST BE SET TO ONE AND BODSE MUST BE SET TO ZERO. THIS SETS THE MCU CONTROL REGISTER WHERE WE NEED IT WHILE ASLEEP
+      MCUCR = bit (BODS);                                         //SETS THE MCUCR TO WHAT WE NEED
+      noInterrupts();
+      attachInterrupt(digitalPinToInterrupt(wakePin), sleepISR, HIGH);
+      interrupts();                                               //re-allow interrupts since we now want them to run to wake up
+      sleep_cpu();
+    }  
     
 
 //***********Pressure(Barometer)
@@ -153,7 +162,19 @@ void loop(){
     unit="Pa";
     pressuredata= bmp.readPressure();                          //read sensor and get data
     //updatesite("3",sensordata);                             //update ThingSpeak site with data ("field",sensordata)
-    testdata(pressuredata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message   
+    testdata(pressuredata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message 
+    if (digitalRead(sleepPin) == LOW){
+      static byte prevADCSRA = ADCSRA;                            //STORES CURRENT ADDRESS IN A VARIABLE
+      ADCSRA = 0;                                                  //RESEETS THE ADC TO ALLOW SHUT DOWN
+      set_sleep_mode (SLEEP_MODE_PWR_DOWN);                       //DEEP SLEEP, MINIMAL POWER USAGE
+      sleep_enable();                                             //ALLOWS THE ARDUINO TO SLEEP 
+      MCUCR = bit (BODS) | bit (BODSE);                           //BODS MUST BE SET TO ONE AND BODSE MUST BE SET TO ZERO. THIS SETS THE MCU CONTROL REGISTER WHERE WE NEED IT WHILE ASLEEP
+      MCUCR = bit (BODS);                                         //SETS THE MCUCR TO WHAT WE NEED
+      noInterrupts();
+      attachInterrupt(digitalPinToInterrupt(wakePin), sleepISR, HIGH);
+      interrupts();                                               //re-allow interrupts since we now want them to run to wake up
+      sleep_cpu();
+    }  
     
 
 //***********Altitude(Barometer)
@@ -164,6 +185,18 @@ void loop(){
     altitudedata= bmp.readAltitude(101325)/40;                          //read sensor and get data
     //updatesite("4",sensordata);                             //update ThingSpeak site with data ("field",sensordata)
     testdata(altitudedata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message   
+    if (digitalRead(sleepPin) == LOW){
+      static byte prevADCSRA = ADCSRA;                            //STORES CURRENT ADDRESS IN A VARIABLE
+      ADCSRA = 0;                                                  //RESEETS THE ADC TO ALLOW SHUT DOWN
+      set_sleep_mode (SLEEP_MODE_PWR_DOWN);                       //DEEP SLEEP, MINIMAL POWER USAGE
+      sleep_enable();                                             //ALLOWS THE ARDUINO TO SLEEP 
+      MCUCR = bit (BODS) | bit (BODSE);                           //BODS MUST BE SET TO ONE AND BODSE MUST BE SET TO ZERO. THIS SETS THE MCU CONTROL REGISTER WHERE WE NEED IT WHILE ASLEEP
+      MCUCR = bit (BODS);                                         //SETS THE MCUCR TO WHAT WE NEED
+      noInterrupts();
+      attachInterrupt(digitalPinToInterrupt(wakePin), sleepISR, HIGH);
+      interrupts();                                               //re-allow interrupts since we now want them to run to wake up
+      sleep_cpu();
+    }
     
 
 //***********Light
@@ -173,7 +206,19 @@ void loop(){
     unit="lumens";
     lightdata= analogRead(A0);                          //read sensor and get data
     //updatesite("5",sensordata);                             //update ThingSpeak site with data ("field",sensordata)
-    testdata(lightdata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message 
+    testdata(lightdata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message
+    if (digitalRead(sleepPin) == LOW){
+      static byte prevADCSRA = ADCSRA;                            //STORES CURRENT ADDRESS IN A VARIABLE
+      ADCSRA = 0;                                                  //RESEETS THE ADC TO ALLOW SHUT DOWN
+      set_sleep_mode (SLEEP_MODE_PWR_DOWN);                       //DEEP SLEEP, MINIMAL POWER USAGE
+      sleep_enable();                                             //ALLOWS THE ARDUINO TO SLEEP 
+      MCUCR = bit (BODS) | bit (BODSE);                           //BODS MUST BE SET TO ONE AND BODSE MUST BE SET TO ZERO. THIS SETS THE MCU CONTROL REGISTER WHERE WE NEED IT WHILE ASLEEP
+      MCUCR = bit (BODS);                                         //SETS THE MCUCR TO WHAT WE NEED
+      noInterrupts();
+      attachInterrupt(digitalPinToInterrupt(wakePin), sleepISR, HIGH);
+      interrupts();                                               //re-allow interrupts since we now want them to run to wake up
+      sleep_cpu();
+    }
     
 
 //***********Dust
@@ -192,7 +237,19 @@ void loop(){
     lowpulseoccupancy = 0;
    }
     //updatesite("6",sensordata);                             //update ThingSpeak site with data ("field",sensordata)
-    testdata(dustdata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message 
+    testdata(dustdata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message
+    if (digitalRead(sleepPin) == LOW){
+      static byte prevADCSRA = ADCSRA;                            //STORES CURRENT ADDRESS IN A VARIABLE
+      ADCSRA = 0;                                                  //RESEETS THE ADC TO ALLOW SHUT DOWN
+      set_sleep_mode (SLEEP_MODE_PWR_DOWN);                       //DEEP SLEEP, MINIMAL POWER USAGE
+      sleep_enable();                                             //ALLOWS THE ARDUINO TO SLEEP 
+      MCUCR = bit (BODS) | bit (BODSE);                           //BODS MUST BE SET TO ONE AND BODSE MUST BE SET TO ZERO. THIS SETS THE MCU CONTROL REGISTER WHERE WE NEED IT WHILE ASLEEP
+      MCUCR = bit (BODS);                                         //SETS THE MCUCR TO WHAT WE NEED
+      noInterrupts();
+      attachInterrupt(digitalPinToInterrupt(wakePin), sleepISR, HIGH);
+      interrupts();                                               //re-allow interrupts since we now want them to run to wake up
+      sleep_cpu();
+    } 
     
 
 //***********UV Sensor
@@ -214,6 +271,18 @@ void loop(){
     
    //updatesite("7",sensordata);                             //update ThingSpeak site with data ("field",sensordata)
    testdata(uvdata,maxvalue,minvalue,sensor,unit);        //test data and trigger Safe or Warning message
+   if (digitalRead(sleepPin) == LOW){
+      static byte prevADCSRA = ADCSRA;                            //STORES CURRENT ADDRESS IN A VARIABLE
+      ADCSRA = 0;                                                  //RESEETS THE ADC TO ALLOW SHUT DOWN
+      set_sleep_mode (SLEEP_MODE_PWR_DOWN);                       //DEEP SLEEP, MINIMAL POWER USAGE
+      sleep_enable();                                             //ALLOWS THE ARDUINO TO SLEEP 
+      MCUCR = bit (BODS) | bit (BODSE);                           //BODS MUST BE SET TO ONE AND BODSE MUST BE SET TO ZERO. THIS SETS THE MCU CONTROL REGISTER WHERE WE NEED IT WHILE ASLEEP
+      MCUCR = bit (BODS);                                         //SETS THE MCUCR TO WHAT WE NEED
+      noInterrupts();
+      attachInterrupt(digitalPinToInterrupt(wakePin), sleepISR, HIGH);
+      interrupts();                                               //re-allow interrupts since we now want them to run to wake up
+      sleep_cpu();
+    }
    
 
 //***********Send Data to Thingspeak
@@ -395,6 +464,8 @@ void interruptSetup(){
 }
 
 void sleepISR(){
+  if (wakePin == HIGH){
   sleep_disable();
   detachInterrupt(digitalPinToInterrupt(wakePin));
+  }
 }
