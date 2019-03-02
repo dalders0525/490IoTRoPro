@@ -1,0 +1,33 @@
+ICP6: Writing to Arduino with Node-Red
+
+Introduction
+
+For this ICP, we created a JavaScript function node that took in a payload and output a signal that lighted up three LEDs like a traffic light.
+
+Objectives
+
+ICP6 deliverable content includes completed code and a video of an Arduino flashing lights like a traffic light.
+
+Approaches/Methods
+
+JavaScript is fairly new to all members of our group but through a conjoined effort, we were able to derive the syntax required. Also, the Arduino required a special program uploaded to it to communicate with Node Red called "Fermata." It can be found on the Arduino IDE by going File>Examples>Fermata>StandardFermata and by uploading that, your board will be able to communicate with Node Red.
+
+The Node Red Code will be available in the Code section of this repository.
+
+After the code was written and three LEDs hooked up, it was a matter of deploying the code and starting the one second delay. After that, the program was autonomous.
+
+Circuit Diagrams/Videos
+
+ICP6: Single LED Blink youtube link here ICP6: Traffic Light Blinking youtube link here
+
+Parameters
+
+Arduino Uno board Red LED Yellow LED Green LED
+
+Node-Red Node-Red UI Nodes Used:
+
+Inject Function Arduino node x3
+
+Evaluation, Discussion, Conclusion
+
+This is an introduction to using Node-Red to program hardware.
