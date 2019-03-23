@@ -1,0 +1,34 @@
+**ICP9: Writing to Arduino with MIT App-Inventor**
+
+**Introduction**
+
+For this ICP, we created an app on MIT's tool called App Inventor. A web based program, it allows us to make an app on an android device and the target of this ICP is to create an app to control an arduino.
+
+**Objectives**
+
+ICP9 deliverable materials include a video of a working project and this wiki explaining what it does. Furthermore, the point of this project is to introduce MIT App Inventor as a viable way to control hardware and receive sensor data.
+
+**Approaches/Methods**
+
+As it seems to happen with all our ICP's, we ran into faulty hardware. After nearly an hour and a half of trobleshooting our own hardware to make sure it wasn't a pro grammatically fixable mistake, 
+swapped hardware with another group and it worked perfectly the first time. While a relief that our code and set up was working, it was very frustrating knowing that we probably could have finished this 
+project ahead of schedule had the hardware behaved as it was intended to. All three of us were able to develop code that could turn the LED on and off, as per the practice problem stated previously in the lecture. 
+We decided to use Daniel's code when progressing as he had already begun the architecture by the time Michael and I had nearly exhausted our ability to troubleshoot the hardware. 
+
+**Circuit Diagrams/Videos**
+
+Complete Project Video: https://www.youtube.com/watch?v=GTLrpg6atOg&feature=youtu.be
+
+**Parameters**
+
+Arduino Uno board Yellow LED 
+
+DSD Bluetooth module
+
+Barometric,Humidity, and Temperature Sensor
+
+**Evaluation, Discussion, Conclusion**
+
+This is an introduction to using MIT App Inventor to create apps and control hardware. This has been my favorite ICP yet as I find the MIT App Inventor program very intuitive and easy to use while still being as powerful as node red
+and other graphic based programming languages. The only downside, I felt, was in how slow it is to program with. If you know what you want to do and how to do it in a text based language and you can type faster than 
+you can drag and drop, this may not be the app to use.
