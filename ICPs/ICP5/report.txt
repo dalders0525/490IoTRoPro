@@ -1,0 +1,36 @@
+ICP4: Node-Red Expansion
+
+Introduction
+
+The second project in a series involving Node-Red. This ICP expands on what we learned and applied in ICP4.
+
+Objectives
+
+ICP 5 had a complex set of deliverable requirements: do something originally yours with 7 or 8 of the nodes discussed in the power point. It's worth noting that the lecturer said that mqtt did not need to be used, but if you could get it to work then it would be cool.
+
+Approaches/Methods
+
+The node I had the most trouble with was the websocket. I kept getting an error that two sockets couldn't listen to the same host site simultaneously and I realized that I had them both set to listen after an embarrassing amount of time. Switching one to "Connect to" and the other "Listen on" allowed me to effectively bounce a message off the dummy site.
+
+Circuit Diagrams/Videos
+
+See Code section.
+
+Parameters
+
+Node-Red Node-Red UI Nodes Used:
+
+Inject
+Function
+Text Edit
+Edit File
+http Request (pushed to debug from dummy site)
+debug
+websocket (input and output from dummy site to debug)
+Range
+Switch
+Change
+rbe
+Evaluation, Discussion, Conclusion
+
+The subject matter of this course is fun and interesting. Node-Red is a new way to program that I've never interacted with before as my experience lays exclusively with text based programming and LabVIEW. Node-Red will take some getting used to, but I could very easily see myself using it on personal projects in the future.
