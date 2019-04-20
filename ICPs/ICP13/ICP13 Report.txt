@@ -1,0 +1,36 @@
+**Intro **
+
+The goal of this project is to design a small sensor station and transmit the collected sensor data via WiFi 
+to an Android device and webpage simultaneously. We chose to use a sensor for temperature of the area in which the hardware is stored.
+
+**Objectives** 
+
+The objective of this project is to show how MIT App inventor can communicate with webpages and how to use the 
+arduino IDE and NodeMCU hardware to create that webpage. 
+
+**Approaches **
+
+Our NodeMCU that we first received seemed to be having some issues connecting so we got a new one. Shortly 
+thereafter, we had a hard time finding and downloading the library. It wasn't until we found a link to place in a 
+manual repository (in the Arduino IDE: File --> Preferences --> "Additional Boards Manager URLs:"). If you enter in
+ a board manager URL (should be found online) then it allows you to go into board/library manager from the IDE and 
+get the specs for that specific board. After we got that to work, the programming and wiring was simple.
+
+**Workflow Diagram/Code**
+
+See uploads. Youtube Video: https://youtu.be/dcnEMEBzNn0
+
+**Parameters **
+
+NodeMCU Microcontroller
+Arduino IDE
+Temperature Sensor
+LED
+MIT App Inventor
+Android Phone
+Laptop
+
+**Evaluation and Conclusion** 
+
+In conclusion, this ICP was pretty neat. Our project for this class will probably utilize what we just learned. 
+There's a large number of applications for this technology.
