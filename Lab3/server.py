@@ -20,9 +20,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 			self.send_header('Content-type', 'text/plain')
 			self.end_headers()
 			#hu, te = Adafruit_DHT.read_retry(11, 4)
-			hu = '35'
 			te = '21'
-			mystr = str(te) + "," + str(hu)
+			mystr = str(te)
 			self.wfile.write(mystr.encode(encoding='utf_8'))
 		else:
 			self.send_response(HTTPStatus.OK)

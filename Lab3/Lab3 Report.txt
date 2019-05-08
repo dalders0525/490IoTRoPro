@@ -22,7 +22,7 @@ Workflow Diagram/Code
 Workflow Diagram/Code
 
 See uploads.
-Youtube Video:
+Youtube Video:https://www.youtube.com/watch?v=0pTS2Kb2sA8
 GitHub Wiki: https://github.com/dalders0525/490IoTRoPro/wiki/Lab3
 
 Parameters

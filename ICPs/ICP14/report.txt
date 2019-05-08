@@ -1,0 +1,35 @@
+**Introduction**
+
+NAO H25 (V6) is a little, programmable robot that can be made to move, speak, and retrieve information from web 
+hosts using api keys. All of which we cover in this ICP
+
+**Objectives**
+
+The objective of ICP 14 is to program the NAO using the Choregraphe software and retrieve weather data and have the robot repeat it back to me.
+
+**Approaches/Methods**
+
+I read through the lesson and downloaded Choregraphe but I was not able to connect to a virtual robot reliably. 
+Because I had no way of troubleshooting, I didn't end up finishing this ICP.
+
+**Workflow**
+
+The workflow for the ICP consisted of connecting to the robot and retrieving weather information from the internet. 
+To do this, we use an API key from openweathermap.org. I used the additional libraries to handle .json information, 
+url traffic, and python. However, I was not able to get the robot to function as intended and the weekend ended up running 
+out on me before I could finish.
+
+**Parameters**
+
+NAO Robot
+Choregraphe Suite
+Python
+openweathermap.org
+
+**Evaluation & Conclusion**
+
+The NAO interface proved challenging for me. I took this on alone outside of class due to personal reasons so learning 
+it without guidance was difficult. I don't think it even works 100% of the time as half the time it doesn't connect to the 
+virtual robot. I've enjoyed every graphical editing tool provided so far in this class, however, and this is no exception.
+This ICP is setup for the second NAO lab, so I will have to do more research to make sure I can connect to and operate the 
+robot with little interruptions.
