@@ -1,0 +1,19 @@
+[
+    {
+        "id": "df20f8fa.a41298",
+        "type": "file in",
+        "z": "562e75a8.5c6f2c",
+        "name": "",
+        "filename": "/home/pi/490data.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "d996f1a2.3482a"
+            ]
+        ]
+    }
+]
