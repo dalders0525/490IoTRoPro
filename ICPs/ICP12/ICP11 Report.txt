@@ -1,0 +1,29 @@
+Motion Sensor/Lie Detector
+
+Introduction
+
+This week’s ICP was split into two parts. First, to build a simple circuit using a motion sensor. Second, to build a lie detector based on heart rate.
+
+Objectives
+
+The final deliverable project will be displayed in the videos listed later in this report. So long as the motion detector shows positive results, meaning that motion was detected and a signal given, the project was a success. Similarly, a signal LED will change color based upon whether or not a lie was detected.
+
+Approaches/Methods
+
+The motion detector's most difficult obstacle was determining whether or not we should use a pull up resistor to make sure the signal was being seen by the microcontroller. However, what ended up happening is that the pull up resistor proved to be a constantly lower resistance than the sensor, and thus made sure the signal never changed, regardless of whether motion was detected or not. We removed the resistor, and the project worked as expected.
+
+For the lie detector, the issues were programmatic. The heart rate monitor returns an analog number in milliamps, not in an actual heart rate. We didn't want to waste a lot of time trying to develop an algorithm to translate the amplitude to a human readable format when the actual number didn't necessarily matter. We simply found an average over a one second period and then compared the incoming heart rates to that and made a system that changes the indicator LED when the subject's heart rate rose and stayed above their measured average.
+
+Circuit Diagrams/Videos
+
+Motion Detector https://www.youtube.com/watch?v=7qfP29L6otA
+
+Lie Detector https://www.youtube.com/watch?v=jAj57SYNNA8
+
+Parameters
+
+Micro Controller: Arduino Uno Micro Heart-Rate Monitor PIR Motion Sensor
+
+Evaluation, Discussion, Conclusion
+
+These sensors work a little differently than those we've used in the past and this ICP will lead into the NOA programmable robot series.
