@@ -1,0 +1,25 @@
+Introduction
+Robotics is the natural extension of IOT. To-date, the focus of IOT integration has been on the basic mechanics of data collection, collation, analysis, and using the intelligence to drive intelligence to hardware- principally MCUs and MPUs. Much of the discussion has been to try and visualize more robust applications for these technologies in the area of IOT, which is no more or less than using technology to enhance daily life. While machines can individually be optimized to perform certain tasks, there is still no machine which can compare to the utility of a human- not even close. The ability to apply one's self to multiple tasks and "retool" or "respecialize" according to the task at hand is what makes humans such remarkable 'machines'. It is no wonder then that the robot is seen as the pinnacle of technological advancement. It is made in our image. Most engineering, particularly software development involves putting a little piece of the individual into the creation. Seeing the applicability of robots in the realm of IOT likewise is a vision of perfecting the utility of all the technologies involved.
+
+Objectives
+The objective of Lab 4 is to build upon the basic movement mechanics in the NAO ICP by creating a flow that responds to voice commands with proscribed actions. Since we already know how to gather data from a multitude of sources in a variety of ways, this voice-to-logic exercise is a confirmation of bridging robotics with IOT.
+
+Approaches/Methods
+The approach involves creating a flow to interpret a keyword to execute a voice command. The NAO robot passes the keyword to a switch case populated with matching words and then uses that logic to direct the applicable action to the robot. Without a known module to simulate the voice recognition portion of the flow, a text box with the 'interpreted' word serves as the translated command and is fed into the switch case. To change commands in this manner it is necessary to connect to the desired word. The word passes successfully to the switch case and triggers the action. The action can be simulated in the virtual window by playing the flow.
+
+Workflow
+The workflow for this lab was not complicated. Much of what was used was accomplished with ICP 14. The primary contribution was the use of the switch case. From there, it was just a matter of making the proper connections.
+
+Circuit Diagram/Video
+https://www.youtube.com/watch?v=U6y2vrN-zVI&feature=youtu.be
+
+Parameters
+We used the Choregraphe simulation software exclusively.
+
+Evaluation & Discussion
+Given the time constraints and availability of the actual NAO hardware it would have been interesting to see how accurate the voice recognition capabilities of the robot were, especially with the mix of native and non-native English speakers. Would the robot be able to differentiate one critical keyword in a sentence? What is the NAO microphone's sensitivity? How would the robot respond when the voice command is tied to the switch case explicitly and not prefaced with a specific text edit? All of these questions would be worth exploring.
+
+Time permitting, it would have been interesting to see how many of the functions of our Project could be handled by the NAO, both in terms of data collection and as the platform for analysis and reporting. It would really test the sophistication of its sensors.
+
+Conclusion
+Once again, this lab further extends the possibilities of all of the technologies we have used up to this point. It is hardly the end of what is possible. In fact it really represents the next level of development. It is beyond doubt that robots, true robots as we imagine them with the ability to move and to interact will become part of our daily lives. It seems that robots will be the next leading edge of technology and economy as was the information age in the past several decades.
